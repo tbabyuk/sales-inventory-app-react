@@ -11,7 +11,7 @@
   --light-gray: #d9d9d9;
   --dark-gray: #7b7b7b;
   --blue: #1e90ff;
-  --green: #5be236;
+  --green: #5cc240;
   --red: #e93c3c;
 }
 
@@ -27,7 +27,7 @@
 /* HEADER STYLING */
 .header {
   background-color: var(--white);
-  height: 60px;
+  height: 80px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -82,7 +82,7 @@
 .search-item {
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
 }
 
 .search-item-1 div {
@@ -147,7 +147,7 @@
 }
 
 .button-green:hover {
-  background-color: hsl(107, 75%, 45%);
+  background-color: hsl(107, 52%, 41%);
 }
 
 .button-red {
@@ -167,10 +167,19 @@
   border: 1px solid var(--dark-gray);
   padding-left: 7px;
   font-size: 1.2rem;
+  text-align: center;
+}
+
+.book-list {
+    height: 55px;
+    width: 80%;
+    border-radius: 10px;
+    border: none;
+    border: 1px solid var(--dark-gray);
 }
 
 /* other */
 
 .border-round {
-  border-radius: 20px;
+  border-radius: 10px;
 }
