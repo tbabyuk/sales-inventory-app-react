@@ -7,14 +7,6 @@ function MainTop() {
     const [total, setTotal] = useState('0.00');
 
 
-  const handleSubtotal = (e) => {
-    setSubtotal(e.target.value);
-  }
-
-  const handleTax = (e) => {
-    setTax(e.target.value);
-  }
-
   const calcTotal = (e) => {
     e.preventDefault();
     const total = (subtotal * tax).toFixed(2);
@@ -25,8 +17,8 @@ function MainTop() {
   return (
     <form className='container main-top border-round' onSubmit={calcTotal}>
             <div>Price Calculator:</div>
-            <div><input className='dcam-input' type='text' onChange={handleSubtotal} value={subtotal}/></div>
-            <div><select className='dcam-input' onChange={handleTax} value={tax}>
+            <div><input className='dcam-input' type='text' onChange={(e) => setSubtotal(e.target.value)} value={subtotal}/></div>
+            <div><select className='dcam-input' onChange={(e) => setTax(e.target.value)} value={tax}>
               <option value='1.05'>GST (5%)</option>
               <option value='1.13'>HST (13%)</option>
               </select></div>
