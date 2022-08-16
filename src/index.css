@@ -247,11 +247,11 @@ table th, td {
 }
 
 .close-popup {
-  font-size: 5rem;
+  font-size: 4rem;
   color: var(--light-gray);
   position: absolute;
-  top: -20px;
-  right: 25px;
+  top: -15px;
+  right: 20px;
   cursor: pointer;
 }
 

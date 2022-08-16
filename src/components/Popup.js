@@ -4,9 +4,9 @@ import { booksArray } from '../data/inventoryBooks';
 
 import React from 'react'
 
-function Popup({closePopup}) {
+function Popup({handlePopup}) {
   return (
-    <div className="popup-overlay" onClick={closePopup}>
+    <div className="popup-overlay" onClick={handlePopup}>
         <span className="close-popup">&times;</span>
         <div className="popup-inner">
             <table>

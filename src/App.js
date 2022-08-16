@@ -9,23 +9,24 @@ import Popup from './components/Popup'
 function App() {
   const [showPopup, setShowPopup] = useState(false);
 
-  const openPopup = () => {
-    setShowPopup(true)
-  }
-
-  const closePopup = (e) => {
-    if(e.target.className === "popup-overlay" || e.target.className === "close-popup") {
-      setShowPopup(false);
+  
+  const handlePopup = (e) => {
+    if(!showPopup) {
+      setShowPopup(true)
+    } else if(showPopup === true && e.target.className === "popup-overlay" || e.target.className === "close-popup") {
+      setShowPopup(false)
     }
   }
+
+
   return (
     <div className='p-5 wrapper'>
       <>
       <Header />
       <MainTop />
       <MainBottom />
-      <Footer openPopup={openPopup} />
-      {showPopup && <Popup closePopup={closePopup} />}
+      <Footer handlePopup={handlePopup} />
+      {showPopup && <Popup handlePopup={handlePopup} />}
       </>
     </div>
   )
