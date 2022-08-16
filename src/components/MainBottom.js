@@ -23,7 +23,7 @@ function MainBottom() {
         <div><input className='dcam-input' type='text' value={book.price && `$${book.price}`} disabled /></div>
         <div><input className='dcam-input' type='text' value={book.tax && book.tax * 100 + '%'} disabled /></div>
         <div><input className='dcam-input' type='text' value={book.price && `$${(book.price * book.tax + book.price).toFixed(2)}`} disabled /></div>
-        <div><input className='dcam-input' type='text' disabled /></div>
+        <div><input className='dcam-input' type='text' value={book.quantity && `${book.quantity}`} disabled /></div>
       </div>
       <div className='search-item search-item-2'>
         <div></div>
