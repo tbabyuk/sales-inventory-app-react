@@ -208,7 +208,7 @@
 .popup-inner {
   position: absolute;
   top: 50px;
-  width: 65%;
+  width: 70%;
   height: 85%;
   background: var(--white);
   overflow-y: scroll;
@@ -222,13 +222,17 @@ table {
   background: var(--light-gray);
 }
 
+table > tbody > tr > :nth-child(4) {
+  text-align: center;
+}
+
 thead tr {
   color: var(--white);
   background: var(--dark-blue);
 }
 
 table th, td {
-  padding: 3px;
+  padding: 3px 10px;
   border: 1.5px solid white;
 }
 
@@ -243,7 +247,7 @@ table th, td {
   font-size: small;
   border: none;
   border-radius: 3px;
-  background: var(--medium-gray);
+  background: var(--light-gray);
 }
 
 .close-popup {

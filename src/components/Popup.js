@@ -21,7 +21,7 @@ function Popup({handlePopup}) {
                 <tbody>
                     {booksArray.map((bk, index) => {
                         return (
-                            <tr key={index}>
+                            <tr key={index} style={{ backgroundColor: bk.quantity <= 1 ? '#f7bdbd' : bk.quantity <= 3 ? '#eae995' : '#b4f5b8'  }}>
                                 <td>{index}</td>
                                 <td>{bk.title}</td>
                                 <td className='qty'><span>{bk.quantity}</span><button>subtract 1</button></td>

@@ -5,8 +5,8 @@ function MainBottom() {
 
   const [book, setBook] = useState({});
 
-  const handleChange = (e) => {
-    const selectedBook = booksArray.find(bk => bk.title === e.target.value)
+  const handleSelect = (e) => {
+    const selectedBook = booksArray.find(book => book.title === e.target.value)
     setBook(selectedBook)
   }
 
@@ -14,10 +14,8 @@ function MainBottom() {
     <div className='container main-bottom border-round'>
       <div className='search-item search-item-1'>
         <div>
-          <select className='book-list' onChange={handleChange}>
-              {booksArray.map((book, index) => {
-              return <option key={index}>{book.title}</option>
-              })}
+          <select className='book-list' onChange={handleSelect}>
+              {booksArray.map((book, index) => <option key={index}>{book.title}</option>)}
           </select>
         </div>
         <div><input className='dcam-input' type='text' value={book.price && `$${book.price}`} disabled /></div>
