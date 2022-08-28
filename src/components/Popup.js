@@ -1,13 +1,28 @@
 
 // import { booksArray } from '../data/inventoryBooks';
 import {db} from '../firebase/config'
-import {collection, getDocs} from 'firebase/firestore'
+import {collection, getDocs, updateDoc, doc, increment} from 'firebase/firestore'
 
 
 import {useState, useEffect} from 'react'
 
 function Popup({handlePopup}) {
     const [books, setBooks] = useState(null)
+
+
+    const handleSubtract = (id) => {
+
+        // now, let's try updating the quantity property
+        const docRef = doc(db, 'books', `${id}`)
+        updateDoc(docRef, {
+            quantity: increment(-1)
+        })
+        .then(() => {
+            console.log('quantity incremented')
+        })
+
+        
+    }
 
 
     useEffect(() => {
@@ -42,7 +57,7 @@ function Popup({handlePopup}) {
                             <tr key={bk.id} style={{ backgroundColor: bk.quantity <= 1 ? '#f7bdbd' : bk.quantity <= 3 ? '#eae995' : '#b4f5b8'  }}>
                                 <td>{bk.id}</td>
                                 <td>{bk.title}</td>
-                                <td className='qty'><span>{bk.quantity}</span><button>subtract 1</button></td>
+                                <td className='qty'><span>{bk.quantity}</span><button onClick={() => handleSubtract(bk.id)}>subtract 1</button></td>
                                 <td>${bk.price}</td>
                             </tr>
                         )})}
