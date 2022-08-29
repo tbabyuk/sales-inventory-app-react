@@ -15,6 +15,7 @@ function App() {
       setShowPopup(true)
     } else if(showPopup === true && e.target.className === "popup-overlay" || e.target.className === "close-popup") {
       setShowPopup(false)
+      window.location.reload()
     }
   }
 

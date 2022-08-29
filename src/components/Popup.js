@@ -1,7 +1,7 @@
 
 // import { booksArray } from '../data/inventoryBooks';
 import {db} from '../firebase/config'
-import {collection, getDocs, updateDoc, doc, increment} from 'firebase/firestore'
+import {collection, getDocs, updateDoc, doc, increment, query, orderBy} from 'firebase/firestore'
 
 
 import {useState, useEffect} from 'react'
@@ -27,7 +27,8 @@ function Popup({handlePopup}) {
 
     useEffect(() => {
         const ref = collection(db, 'books')
-        getDocs(ref)
+        const q = query(ref, orderBy("order", "asc"))
+        getDocs(q)
           .then((snapshot) => {
             let results = []
             snapshot.docs.forEach(doc => {
@@ -35,7 +36,7 @@ function Popup({handlePopup}) {
             })
             setBooks(results)
           })
-      }, [])
+      }, [handleSubtract])
 
 
   return (
@@ -52,9 +53,9 @@ function Popup({handlePopup}) {
                     </tr>
                 </thead>
                 <tbody>
-                    {books && books.map((bk) => {
+                    {books && books.map((bk, index) => {
                         return (
-                            <tr key={bk.id} style={{ backgroundColor: bk.quantity <= 1 ? '#f7bdbd' : bk.quantity <= 3 ? '#eae995' : '#b4f5b8'  }}>
+                            <tr key={index} style={{ backgroundColor: bk.quantity <= 1 ? '#f7bdbd' : bk.quantity <= 3 ? '#eae995' : '#b4f5b8'  }}>
                                 <td>{bk.id}</td>
                                 <td>{bk.title}</td>
                                 <td className='qty'><span>{bk.quantity}</span><button onClick={() => handleSubtract(bk.id)}>subtract 1</button></td>

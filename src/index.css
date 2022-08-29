@@ -237,11 +237,16 @@ table th, td {
 }
 
 .qty {
-  display: flex;
-  justify-content: space-evenly;
+    position: relative;
+}
+
+.qty span {
+  padding-left: 30px;
 }
 
 .qty button {
+  position: absolute;
+  right: 30px;
   width: fit-content;
   padding: 0 5px;
   font-size: small;

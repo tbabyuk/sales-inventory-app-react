@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 // import { booksArray } from '../data/inventoryBooks';
 import {db} from '../firebase/config'
-import {collection, getDocs} from 'firebase/firestore'
+import {collection, getDocs, orderBy, query} from 'firebase/firestore'
 
 
 function MainBottom() {
@@ -18,10 +18,17 @@ function MainBottom() {
       })
   }
 
+//   .collection("books")
+// .orderBy("", "asc")
+
   // fetch books from firestore
   useEffect(() => {
     const ref = collection(db, 'books')
-    getDocs(ref)
+
+  //order query
+  const q = query(ref, orderBy("order", "asc")) 
+    
+    getDocs(q)
       .then((snapshot) => {
         let results = []
         snapshot.docs.forEach(doc => {
@@ -36,17 +43,12 @@ function MainBottom() {
       <div className='search-item search-item-1'>
         <div>
           <select className='book-list' onChange={handleSelect}>
-              {/* {booksArray.map((book, index) => <option key={index}>{book.title}</option>)} */}
               {books && books.map((book) => <option key={book.id}>{book.title}</option>)}
           </select>
         </div>
-        {/* <div><input className='dcam-input' type='text' value={book.price && `$${book.price}`} disabled /></div> */}
         <div><input className='dcam-input' type='text' value={bookData && bookData.price} disabled /></div>
-        {/* <div><input className='dcam-input' type='text' value={book.tax && book.tax * 100 + '%'} disabled /></div> */}
         <div><input className='dcam-input' type='text' value={bookData.tax && bookData.tax * 100 + '%'} disabled /></div>
-        {/* <div><input className='dcam-input' type='text' value={book.price && `$${(book.price * book.tax + book.price).toFixed(2)}`} disabled /></div> */}
         <div><input className='dcam-input' type='text' value={bookData.price && (bookData.price * bookData.tax + bookData.price).toFixed(2)} disabled /></div>
-        {/* <div><input className='dcam-input' type='text' value={book.quantity && `${book.quantity}`} disabled /></div> */}
         <div><input className='dcam-input' type='text' value={bookData.quantity && bookData.quantity} disabled /></div>
       </div>
       <div className='search-item search-item-2'>
