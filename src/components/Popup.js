@@ -20,8 +20,6 @@ function Popup({handlePopup}) {
         .then(() => {
             console.log('quantity incremented')
         })
-
-        
     }
 
 

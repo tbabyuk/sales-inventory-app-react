@@ -31,7 +31,7 @@ class Book {
   const rcm_piano_2_rep = new Book('RCM Level 2 Piano - Repertoire', 20.95, 0.05, 4);
   const rcm_piano_2_rep_old = new Book('RCM Level 2 Piano - Repertoire (old)', 20.95, 0.05, 1);
   const rcm_piano_2_etu = new Book('RCM Level 2 Piano - Etudes', 15.95, 0.05, 4);
-  const rcm_piano_2_etu_old = new Book('RCM Level 2 Piano - Etudes', 15.95, 0.05, 2);
+  const rcm_piano_2_etu_old = new Book('RCM Level 2 Piano - Etudes (old)', 15.95, 0.05, 2);
   const rcm_piano_2_sight = new Book('RCM Level 2 Piano - Sight Reading & Ear Tests', 17.95, 0.05, 5);
   const rcm_2_theory = new Book('RCM Level 2 - Theory', 19.95, 0.05, 7);
   
