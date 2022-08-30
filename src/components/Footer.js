@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-function Footer({handlePopup}) {
+function Footer({handlePopup, handleSalesLog}) {
 
   const handleNotebooks = () => {
     alert("No notebooks for sale at this time!")
@@ -17,7 +17,7 @@ function Footer({handlePopup}) {
         <div><button className="button-big button-green" onClick={handlePopup}>Books</button></div>
         <div><button className="button-big button-green" onClick={handleNotebooks}>Notebooks</button></div>
         <div><button className="button-big button-green" onClick={handleOther}>Other</button></div>
-        <div><button className="button-big button-blue">Sales Log</button></div>
+        <div><button className="button-big button-blue" onClick={handleSalesLog}>Sales Log</button></div>
         <div><button className="button-small button-red">Reset Log</button></div>
     </div>
   )

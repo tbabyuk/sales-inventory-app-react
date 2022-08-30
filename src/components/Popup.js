@@ -12,14 +12,19 @@ function Popup({handlePopup}) {
 
     const handleSubtract = (id) => {
 
-        // now, let's try updating the quantity property
+        // now, update the quantity of this document
         const docRef = doc(db, 'books', `${id}`)
         updateDoc(docRef, {
             quantity: increment(-1)
         })
-        .then(() => {
-            console.log('quantity incremented')
-        })
+        .then(() => console.log('quantity decremented'))
+
+        // Later, add this document to the Sales Log collection
+
+        // .then(() => {
+        //     saveToSalesLog(docRef)
+        // })
+
     }
 
 
