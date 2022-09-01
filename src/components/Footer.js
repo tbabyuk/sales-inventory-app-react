@@ -17,8 +17,7 @@ function Footer({handlePopup, handleSalesLog}) {
         <div><button className="button-big button-green" onClick={handlePopup}>Books</button></div>
         <div><button className="button-big button-green" onClick={handleNotebooks}>Notebooks</button></div>
         <div><button className="button-big button-green" onClick={handleOther}>Other</button></div>
-        <div><button className="button-big button-blue" onClick={handleSalesLog}>Sales Log</button></div>
-        <div><button className="button-small button-red">Reset Log</button></div>
+        <div><button className="button-big button-green" onClick={handleSalesLog}>Sales Log</button></div>
     </div>
   )
 }

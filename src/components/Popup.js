@@ -1,7 +1,7 @@
 
-// import { booksArray } from '../data/inventoryBooks';
+// firebase imports
 import {db} from '../firebase/config'
-import {collection, addDoc, getDocs, updateDoc, doc, increment, query, orderBy, serverTimestamp} from 'firebase/firestore'
+import {collection, addDoc, getDocs, updateDoc, doc, increment, query, orderBy} from 'firebase/firestore'
 
 
 import {useState, useEffect} from 'react'
@@ -32,15 +32,14 @@ function Popup({handlePopup}) {
 
     }
 
-    const handleSubtract = (id) => {
+    const handleSubtract = async id => {
 
         // now, update the quantity of this document
-        const docRef = doc(db, 'books', `${id}`)
-        console.log(docRef)
-        updateDoc(docRef, {
+        const docRef = doc(db, 'books', id)
+        await updateDoc(docRef, {
             quantity: increment(-1)
         })
-        .then(() => addToLog(id))
+        addToLog(id)
         
         
         // Later, add this document to the Sales Log collection
@@ -85,7 +84,7 @@ function Popup({handlePopup}) {
                             <tr key={index} style={{ backgroundColor: bk.quantity <= 1 ? '#f7bdbd' : bk.quantity <= 3 ? '#eae995' : '#b4f5b8' }}>
                                 <td>{bk.id}</td>
                                 <td>{bk.title}</td>
-                                <td className='qty'><span>{bk.quantity}</span><button onClick={() => handleSubtract(bk.id)}>subtract 1</button></td>
+                                <td className='qty'><span>{bk.quantity}</span><button className='btn-delete' onClick={() => handleSubtract(bk.id)}>subtract 1</button></td>
                                 <td>${((bk.price * bk.tax) + bk.price).toFixed(2)}</td>
                             </tr>
                         )})}

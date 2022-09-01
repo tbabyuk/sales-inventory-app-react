@@ -107,7 +107,7 @@
   background-color: var(--white);
   height: 120px;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
 
 
@@ -119,16 +119,6 @@
 .button-big {
   height: 55px;
   width: 130px;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 2px 2px 2px 2px var(--light-gray);
-  text-transform: uppercase;
-  color: var(--white);
-}
-
-.button-small {
-  height: 35px;
-  width: 100px;
   border: none;
   border-radius: 10px;
   box-shadow: 2px 2px 2px 2px var(--light-gray);
@@ -152,13 +142,14 @@
   background-color: hsl(107, 52%, 41%);
 }
 
-.button-red {
+/* .button-red {
   background-color: var(--red);
 }
 
 .button-red:hover {
   background-color: hsl(0, 80%, 47%);
-}
+} */
+
 
 /* inputs */
 .dcam-input {
@@ -235,16 +226,11 @@ table th, td {
 }
 
 .qty {
-    position: relative;
+    display: flex;
+    justify-content: space-around;
 }
 
-.qty span {
-  padding-left: 30px;
-}
-
-.qty button {
-  position: absolute;
-  right: 30px;
+.btn-delete {
   width: fit-content;
   padding: 0 5px;
   font-size: small;
